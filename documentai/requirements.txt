@@ -1,0 +1,11 @@
+base64
+io
+fitz
+PIL
+pillow
+python-magic
+unstructured[docx]
+unstructured[pdf]
+unstructured[pptx]
+"unstructured[all-docs]"
+langchain_unstructured
