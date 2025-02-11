@@ -56,11 +56,16 @@ class DOCXPPTHindi2English:
 
     def convert_word(self, save_as=None, save_freq = 10,starting=0):
         i = 0
+        total = len(self.docx.paragraphs)
+        for tbl in self.docx.tables:
+            for col in tbl.columns:
+                for cell in col.cells:
+                    total += len(cell.paragraphs)
         for paragraph in self.docx.paragraphs:
             if i < starting: continue
             paragraph.text = self.fn(paragraph.text)
             i += 1
-            print('\r',i,'.')
+            print(i,'/',total,end='.')
             if (i % save_freq) == 0: self.docx.save(save_as)
 
         for tbl in self.docx.tables:
@@ -70,7 +75,7 @@ class DOCXPPTHindi2English:
                             if i < starting: continue
                             paragraph.text = self.fn(paragraph.text)
                             i += 1
-                            print('\r', i, '.')
+                            print(i, '/', total, end='.')
                             if save_as:
                                 if (i % save_freq) == 0:self.docx.save(save_as)
 
@@ -146,8 +151,8 @@ if __name__ == '__main__':
     file_name = '/Users/ranvirprasad/Downloads/Ch_09_Industry.docx'
     converter = DOCXPPTHindi2English(file_name, docx=True, fn=hindi2english)
     #converter.convert_word_intermediate(save_as=True, starting=0)
-    converter.import_dict_to_word('/Users/ranvirprasad/Downloads/temp.docx')
-    #converter.convert_word(save_as='All_Chap_english.docx', starting=61)
+    #converter.import_dict_to_word('/Users/ranvirprasad/Downloads/temp.docx')
+    converter.convert_word(save_as='/Users/ranvirprasad/Downloads/Ch_09_Industry_english.docx', starting=0)
 
     #converter1 = PPTKruti2Unicode('/Users/ranvirprasad/Downloads/Rahul Gahlot Shikayat Aakhya New - Final.docx', docx=True)
     #converter1.convert_word('converted_word2.docx')
