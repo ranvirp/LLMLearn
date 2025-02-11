@@ -147,12 +147,16 @@ if __name__ == '__main__':
     #word_path = '/Users/ranvirprasad/Downloads/02.docx'
     #lc = LangChainDocx(word_path)
     #print(lc.data)
+    folder = '/Users/ranvirprasad/Downloads'
+    files = ['Ch_03_Agri_Summary_2', 'Ch_04_Van_Summary','Ch_05_Pashudhan_Summary', 'Ch_13_Edu_Summary',
+             'Ch_15_Samaj_Kalyan_Summary', 'Ch-14 Health-summary'  ]
+    for file in files:
 
-    file_name = '/Users/ranvirprasad/Downloads/Ch_09_Industry.docx'
-    converter = DOCXPPTHindi2English(file_name, docx=True, fn=hindi2english)
-    #converter.convert_word_intermediate(save_as=True, starting=0)
-    #converter.import_dict_to_word('/Users/ranvirprasad/Downloads/temp.docx')
-    converter.convert_word(save_as='/Users/ranvirprasad/Downloads/Ch_09_Industry_english.docx', starting=0)
+        file_name = '/Users/ranvirprasad/Downloads/Ch_09_Industry.docx'
+        converter = DOCXPPTHindi2English(file_name, docx=True, fn=hindi2english)
+        #converter.convert_word_intermediate(save_as=True, starting=0)
+        #converter.import_dict_to_word('/Users/ranvirprasad/Downloads/temp.docx')
+        converter.convert_word(save_as='/Users/ranvirprasad/Downloads/Ch_09_Industry_english.docx', starting=0)
 
-    #converter1 = PPTKruti2Unicode('/Users/ranvirprasad/Downloads/Rahul Gahlot Shikayat Aakhya New - Final.docx', docx=True)
-    #converter1.convert_word('converted_word2.docx')
+        #converter1 = PPTKruti2Unicode('/Users/ranvirprasad/Downloads/Rahul Gahlot Shikayat Aakhya New - Final.docx', docx=True)
+        #converter1.convert_word('converted_word2.docx')
