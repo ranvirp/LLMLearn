@@ -55,6 +55,7 @@ class DOCXPPTHindi2English:
        self.docx.save(save_as)
 
     def convert_word(self, save_as=None, save_freq = 10,starting=0):
+        print(f'converting {self.file_name}')
         i = 0
         total = len(self.docx.paragraphs)
         for tbl in self.docx.tables:
@@ -152,11 +153,11 @@ if __name__ == '__main__':
              'Ch_15_Samaj_Kalyan_Summary', 'Ch-14 Health-summary'  ]
     for file in files:
 
-        file_name = '/Users/ranvirprasad/Downloads/Ch_09_Industry.docx'
+        file_name = folder + '/' + file + '.docx'
         converter = DOCXPPTHindi2English(file_name, docx=True, fn=hindi2english)
         #converter.convert_word_intermediate(save_as=True, starting=0)
         #converter.import_dict_to_word('/Users/ranvirprasad/Downloads/temp.docx')
-        converter.convert_word(save_as='/Users/ranvirprasad/Downloads/Ch_09_Industry_english.docx', starting=0)
+        converter.convert_word(save_as=f'{folder}/{file}_english.docx', starting=0)
 
         #converter1 = PPTKruti2Unicode('/Users/ranvirprasad/Downloads/Rahul Gahlot Shikayat Aakhya New - Final.docx', docx=True)
         #converter1.convert_word('converted_word2.docx')
